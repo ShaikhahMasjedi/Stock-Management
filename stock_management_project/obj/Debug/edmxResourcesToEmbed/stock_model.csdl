@@ -1,0 +1,394 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="stock_managementModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="brands_table">
+    <Key>
+      <PropertyRef Name="brand_id" />
+    </Key>
+    <Property Name="brand_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="brand_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="models_table" Relationship="Self.FK_models_brands" FromRole="brands_table" ToRole="models_table" />
+  </EntityType>
+  <EntityType Name="categories_table">
+    <Key>
+      <PropertyRef Name="cat_id" />
+    </Key>
+    <Property Name="cat_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cat_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="products_table" Relationship="Self.FK_products_categories" FromRole="categories_table" ToRole="products_table" />
+  </EntityType>
+  <EntityType Name="employees_table">
+    <Key>
+      <PropertyRef Name="emp_id" />
+    </Key>
+    <Property Name="emp_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="emp_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="emp_email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="emp_phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="emp_pass" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="admin_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="enter_opreation_table" Relationship="Self.FK_enter_opreation_employees" FromRole="employees_table" ToRole="enter_opreation_table" />
+    <NavigationProperty Name="orders_table" Relationship="Self.FK_orders_employees" FromRole="employees_table" ToRole="orders_table" />
+    <NavigationProperty Name="retrievals_table" Relationship="Self.FK_retrievals_employees" FromRole="employees_table" ToRole="retrievals_table" />
+  </EntityType>
+  <EntityType Name="enter_opreation_table">
+    <Key>
+      <PropertyRef Name="op_id" />
+    </Key>
+    <Property Name="op_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ent_quantity" Type="Int32" Nullable="false" />
+    <Property Name="pro_id" Type="Int32" Nullable="false" />
+    <Property Name="price" Type="Double" Nullable="false" />
+    <Property Name="ent_date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="sup_id" Type="Int32" Nullable="false" />
+    <Property Name="emp_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="employees_table" Relationship="Self.FK_enter_opreation_employees" FromRole="enter_opreation_table" ToRole="employees_table" />
+    <NavigationProperty Name="products_table" Relationship="Self.FK_enter_opreation_products" FromRole="enter_opreation_table" ToRole="products_table" />
+    <NavigationProperty Name="suppliers_table" Relationship="Self.FK_enter_opreation_suppliers" FromRole="enter_opreation_table" ToRole="suppliers_table" />
+  </EntityType>
+  <EntityType Name="models_table">
+    <Key>
+      <PropertyRef Name="mod_id" />
+    </Key>
+    <Property Name="mod_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="mod_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="brand_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="brands_table" Relationship="Self.FK_models_brands" FromRole="models_table" ToRole="brands_table" />
+    <NavigationProperty Name="products_table" Relationship="Self.FK_products_models" FromRole="models_table" ToRole="products_table" />
+  </EntityType>
+  <EntityType Name="order_details_table">
+    <Key>
+      <PropertyRef Name="ord_detail_id" />
+    </Key>
+    <Property Name="ord_detail_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ord_price" Type="Double" Nullable="false" />
+    <Property Name="ord_detail_quantity" Type="Int32" Nullable="false" />
+    <Property Name="ord_id" Type="Int32" Nullable="false" />
+    <Property Name="pro_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="orders_table" Relationship="Self.FK_order_details_orders" FromRole="order_details_table" ToRole="orders_table" />
+    <NavigationProperty Name="products_table" Relationship="Self.FK_order_details_products" FromRole="order_details_table" ToRole="products_table" />
+  </EntityType>
+  <EntityType Name="orders_table">
+    <Key>
+      <PropertyRef Name="ord_id" />
+    </Key>
+    <Property Name="ord_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ord_date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ord_state" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="store_id" Type="Int32" Nullable="false" />
+    <Property Name="total_price" Type="Double" Nullable="false" />
+    <Property Name="emp_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="employees_table" Relationship="Self.FK_orders_employees" FromRole="orders_table" ToRole="employees_table" />
+    <NavigationProperty Name="order_details_table" Relationship="Self.FK_order_details_orders" FromRole="orders_table" ToRole="order_details_table" />
+    <NavigationProperty Name="stores_table" Relationship="Self.FK_orders_stores" FromRole="orders_table" ToRole="stores_table" />
+  </EntityType>
+  <EntityType Name="products_table">
+    <Key>
+      <PropertyRef Name="pro_id" />
+    </Key>
+    <Property Name="pro_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="pro_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="pro_quantity" Type="Int32" Nullable="false" />
+    <Property Name="pro_description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="id_model" Type="Int32" Nullable="false" />
+    <Property Name="id_category" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="categories_table" Relationship="Self.FK_products_categories" FromRole="products_table" ToRole="categories_table" />
+    <NavigationProperty Name="enter_opreation_table" Relationship="Self.FK_enter_opreation_products" FromRole="products_table" ToRole="enter_opreation_table" />
+    <NavigationProperty Name="models_table" Relationship="Self.FK_products_models" FromRole="products_table" ToRole="models_table" />
+    <NavigationProperty Name="order_details_table" Relationship="Self.FK_order_details_products" FromRole="products_table" ToRole="order_details_table" />
+    <NavigationProperty Name="retrieval_details_table" Relationship="Self.FK_retrieval_details_products" FromRole="products_table" ToRole="retrieval_details_table" />
+  </EntityType>
+  <EntityType Name="retrieval_details_table">
+    <Key>
+      <PropertyRef Name="re_detail_id" />
+    </Key>
+    <Property Name="re_detail_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="pro_id" Type="Int32" Nullable="false" />
+    <Property Name="re_quantity" Type="Int32" Nullable="false" />
+    <Property Name="re_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="products_table" Relationship="Self.FK_retrieval_details_products" FromRole="retrieval_details_table" ToRole="products_table" />
+    <NavigationProperty Name="retrievals_table" Relationship="Self.FK_retrieval_details_retrievals" FromRole="retrieval_details_table" ToRole="retrievals_table" />
+  </EntityType>
+  <EntityType Name="retrievals_table">
+    <Key>
+      <PropertyRef Name="re_id" />
+    </Key>
+    <Property Name="re_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="re_date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="store_id" Type="Int32" Nullable="false" />
+    <Property Name="emp_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="employees_table" Relationship="Self.FK_retrievals_employees" FromRole="retrievals_table" ToRole="employees_table" />
+    <NavigationProperty Name="retrieval_details_table" Relationship="Self.FK_retrieval_details_retrievals" FromRole="retrievals_table" ToRole="retrieval_details_table" />
+    <NavigationProperty Name="stores_table" Relationship="Self.FK_retrievals_stores" FromRole="retrievals_table" ToRole="stores_table" />
+  </EntityType>
+  <EntityType Name="stores_table">
+    <Key>
+      <PropertyRef Name="store_id" />
+    </Key>
+    <Property Name="store_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="store_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="store_phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="store_address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="store_email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="orders_table" Relationship="Self.FK_orders_stores" FromRole="stores_table" ToRole="orders_table" />
+    <NavigationProperty Name="retrievals_table" Relationship="Self.FK_retrievals_stores" FromRole="stores_table" ToRole="retrievals_table" />
+  </EntityType>
+  <EntityType Name="suppliers_table">
+    <Key>
+      <PropertyRef Name="sup_id" />
+    </Key>
+    <Property Name="sup_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="sup_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="sup_email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="sup_phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="enter_opreation_table" Relationship="Self.FK_enter_opreation_suppliers" FromRole="suppliers_table" ToRole="enter_opreation_table" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_models_brands">
+    <End Role="brands_table" Type="Self.brands_table" Multiplicity="1" />
+    <End Role="models_table" Type="Self.models_table" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="brands_table">
+        <PropertyRef Name="brand_id" />
+      </Principal>
+      <Dependent Role="models_table">
+        <PropertyRef Name="brand_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_products_categories">
+    <End Role="categories_table" Type="Self.categories_table" Multiplicity="1" />
+    <End Role="products_table" Type="Self.products_table" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="categories_table">
+        <PropertyRef Name="cat_id" />
+      </Principal>
+      <Dependent Role="products_table">
+        <PropertyRef Name="id_category" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_enter_opreation_employees">
+    <End Role="employees_table" Type="Self.employees_table" Multiplicity="1" />
+    <End Role="enter_opreation_table" Type="Self.enter_opreation_table" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="employees_table">
+        <PropertyRef Name="emp_id" />
+      </Principal>
+      <Dependent Role="enter_opreation_table">
+        <PropertyRef Name="emp_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_orders_employees">
+    <End Role="employees_table" Type="Self.employees_table" Multiplicity="1" />
+    <End Role="orders_table" Type="Self.orders_table" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="employees_table">
+        <PropertyRef Name="emp_id" />
+      </Principal>
+      <Dependent Role="orders_table">
+        <PropertyRef Name="emp_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_retrievals_employees">
+    <End Role="employees_table" Type="Self.employees_table" Multiplicity="1" />
+    <End Role="retrievals_table" Type="Self.retrievals_table" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="employees_table">
+        <PropertyRef Name="emp_id" />
+      </Principal>
+      <Dependent Role="retrievals_table">
+        <PropertyRef Name="emp_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_enter_opreation_products">
+    <End Role="products_table" Type="Self.products_table" Multiplicity="1" />
+    <End Role="enter_opreation_table" Type="Self.enter_opreation_table" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="products_table">
+        <PropertyRef Name="pro_id" />
+      </Principal>
+      <Dependent Role="enter_opreation_table">
+        <PropertyRef Name="pro_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_enter_opreation_suppliers">
+    <End Role="suppliers_table" Type="Self.suppliers_table" Multiplicity="1" />
+    <End Role="enter_opreation_table" Type="Self.enter_opreation_table" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="suppliers_table">
+        <PropertyRef Name="sup_id" />
+      </Principal>
+      <Dependent Role="enter_opreation_table">
+        <PropertyRef Name="sup_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_products_models">
+    <End Role="models_table" Type="Self.models_table" Multiplicity="1" />
+    <End Role="products_table" Type="Self.products_table" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="models_table">
+        <PropertyRef Name="mod_id" />
+      </Principal>
+      <Dependent Role="products_table">
+        <PropertyRef Name="id_model" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_order_details_orders">
+    <End Role="orders_table" Type="Self.orders_table" Multiplicity="1" />
+    <End Role="order_details_table" Type="Self.order_details_table" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="orders_table">
+        <PropertyRef Name="ord_id" />
+      </Principal>
+      <Dependent Role="order_details_table">
+        <PropertyRef Name="ord_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_order_details_products">
+    <End Role="products_table" Type="Self.products_table" Multiplicity="1" />
+    <End Role="order_details_table" Type="Self.order_details_table" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="products_table">
+        <PropertyRef Name="pro_id" />
+      </Principal>
+      <Dependent Role="order_details_table">
+        <PropertyRef Name="pro_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_orders_stores">
+    <End Role="stores_table" Type="Self.stores_table" Multiplicity="1" />
+    <End Role="orders_table" Type="Self.orders_table" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="stores_table">
+        <PropertyRef Name="store_id" />
+      </Principal>
+      <Dependent Role="orders_table">
+        <PropertyRef Name="store_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_retrieval_details_products">
+    <End Role="products_table" Type="Self.products_table" Multiplicity="1" />
+    <End Role="retrieval_details_table" Type="Self.retrieval_details_table" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="products_table">
+        <PropertyRef Name="pro_id" />
+      </Principal>
+      <Dependent Role="retrieval_details_table">
+        <PropertyRef Name="pro_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_retrieval_details_retrievals">
+    <End Role="retrievals_table" Type="Self.retrievals_table" Multiplicity="1" />
+    <End Role="retrieval_details_table" Type="Self.retrieval_details_table" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="retrievals_table">
+        <PropertyRef Name="re_id" />
+      </Principal>
+      <Dependent Role="retrieval_details_table">
+        <PropertyRef Name="re_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_retrievals_stores">
+    <End Role="stores_table" Type="Self.stores_table" Multiplicity="1" />
+    <End Role="retrievals_table" Type="Self.retrievals_table" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="stores_table">
+        <PropertyRef Name="store_id" />
+      </Principal>
+      <Dependent Role="retrievals_table">
+        <PropertyRef Name="store_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="stock_managementEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="brands_table" EntityType="Self.brands_table" />
+    <EntitySet Name="categories_table" EntityType="Self.categories_table" />
+    <EntitySet Name="employees_table" EntityType="Self.employees_table" />
+    <EntitySet Name="enter_opreation_table" EntityType="Self.enter_opreation_table" />
+    <EntitySet Name="models_table" EntityType="Self.models_table" />
+    <EntitySet Name="order_details_table" EntityType="Self.order_details_table" />
+    <EntitySet Name="orders_table" EntityType="Self.orders_table" />
+    <EntitySet Name="products_table" EntityType="Self.products_table" />
+    <EntitySet Name="retrieval_details_table" EntityType="Self.retrieval_details_table" />
+    <EntitySet Name="retrievals_table" EntityType="Self.retrievals_table" />
+    <EntitySet Name="stores_table" EntityType="Self.stores_table" />
+    <EntitySet Name="suppliers_table" EntityType="Self.suppliers_table" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <AssociationSet Name="FK_models_brands" Association="Self.FK_models_brands">
+      <End Role="brands_table" EntitySet="brands_table" />
+      <End Role="models_table" EntitySet="models_table" />
+    </AssociationSet>
+    <AssociationSet Name="FK_products_categories" Association="Self.FK_products_categories">
+      <End Role="categories_table" EntitySet="categories_table" />
+      <End Role="products_table" EntitySet="products_table" />
+    </AssociationSet>
+    <AssociationSet Name="FK_enter_opreation_employees" Association="Self.FK_enter_opreation_employees">
+      <End Role="employees_table" EntitySet="employees_table" />
+      <End Role="enter_opreation_table" EntitySet="enter_opreation_table" />
+    </AssociationSet>
+    <AssociationSet Name="FK_orders_employees" Association="Self.FK_orders_employees">
+      <End Role="employees_table" EntitySet="employees_table" />
+      <End Role="orders_table" EntitySet="orders_table" />
+    </AssociationSet>
+    <AssociationSet Name="FK_retrievals_employees" Association="Self.FK_retrievals_employees">
+      <End Role="employees_table" EntitySet="employees_table" />
+      <End Role="retrievals_table" EntitySet="retrievals_table" />
+    </AssociationSet>
+    <AssociationSet Name="FK_enter_opreation_products" Association="Self.FK_enter_opreation_products">
+      <End Role="products_table" EntitySet="products_table" />
+      <End Role="enter_opreation_table" EntitySet="enter_opreation_table" />
+    </AssociationSet>
+    <AssociationSet Name="FK_enter_opreation_suppliers" Association="Self.FK_enter_opreation_suppliers">
+      <End Role="suppliers_table" EntitySet="suppliers_table" />
+      <End Role="enter_opreation_table" EntitySet="enter_opreation_table" />
+    </AssociationSet>
+    <AssociationSet Name="FK_products_models" Association="Self.FK_products_models">
+      <End Role="models_table" EntitySet="models_table" />
+      <End Role="products_table" EntitySet="products_table" />
+    </AssociationSet>
+    <AssociationSet Name="FK_order_details_orders" Association="Self.FK_order_details_orders">
+      <End Role="orders_table" EntitySet="orders_table" />
+      <End Role="order_details_table" EntitySet="order_details_table" />
+    </AssociationSet>
+    <AssociationSet Name="FK_order_details_products" Association="Self.FK_order_details_products">
+      <End Role="products_table" EntitySet="products_table" />
+      <End Role="order_details_table" EntitySet="order_details_table" />
+    </AssociationSet>
+    <AssociationSet Name="FK_orders_stores" Association="Self.FK_orders_stores">
+      <End Role="stores_table" EntitySet="stores_table" />
+      <End Role="orders_table" EntitySet="orders_table" />
+    </AssociationSet>
+    <AssociationSet Name="FK_retrieval_details_products" Association="Self.FK_retrieval_details_products">
+      <End Role="products_table" EntitySet="products_table" />
+      <End Role="retrieval_details_table" EntitySet="retrieval_details_table" />
+    </AssociationSet>
+    <AssociationSet Name="FK_retrieval_details_retrievals" Association="Self.FK_retrieval_details_retrievals">
+      <End Role="retrievals_table" EntitySet="retrievals_table" />
+      <End Role="retrieval_details_table" EntitySet="retrieval_details_table" />
+    </AssociationSet>
+    <AssociationSet Name="FK_retrievals_stores" Association="Self.FK_retrievals_stores">
+      <End Role="stores_table" EntitySet="stores_table" />
+      <End Role="retrievals_table" EntitySet="retrievals_table" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

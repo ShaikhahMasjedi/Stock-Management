@@ -1,0 +1,351 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.5.1\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0BE9B0E1-62E9-495E-AC33-CD7955834970}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>stock_management_project</RootNamespace>
+    <AssemblyName>stock_management_project</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.5.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.5.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="addBrand_form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="addBrand_form.designer.cs">
+      <DependentUpon>addBrand_form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="addcatigory_form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="addcatigory_form.designer.cs">
+      <DependentUpon>addcatigory_form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="addModel_form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="addModel_form.designer.cs">
+      <DependentUpon>addModel_form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="brands_table.cs">
+      <DependentUpon>stock_model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="categories_table.cs">
+      <DependentUpon>stock_model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="employees_table.cs">
+      <DependentUpon>stock_model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="employee_form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="employee_form.Designer.cs">
+      <DependentUpon>employee_form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="enter_opreation_table.cs">
+      <DependentUpon>stock_model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="home_form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="home_form.Designer.cs">
+      <DependentUpon>home_form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="login_form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="login_form.designer.cs">
+      <DependentUpon>login_form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="logToemp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="logToemp.designer.cs">
+      <DependentUpon>logToemp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="logTostore.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="logTostore.Designer.cs">
+      <DependentUpon>logTostore.cs</DependentUpon>
+    </Compile>
+    <Compile Include="logTosup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="logTosup.designer.cs">
+      <DependentUpon>logTosup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="models_table.cs">
+      <DependentUpon>stock_model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="nav_form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="nav_form.Designer.cs">
+      <DependentUpon>nav_form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="notification_form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="notification_form.Designer.cs">
+      <DependentUpon>notification_form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="orders_table.cs">
+      <DependentUpon>stock_model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="order_details_table.cs">
+      <DependentUpon>stock_model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="order_form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="order_form.Designer.cs">
+      <DependentUpon>order_form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="order_report_form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="order_report_form.Designer.cs">
+      <DependentUpon>order_report_form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="products_form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="products_form.Designer.cs">
+      <DependentUpon>products_form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="products_table.cs">
+      <DependentUpon>stock_model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="product_report_form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="product_report_form.Designer.cs">
+      <DependentUpon>product_report_form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="report_form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="report_form.Designer.cs">
+      <DependentUpon>report_form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="retrievals_table.cs">
+      <DependentUpon>stock_model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="retrieval_details_table.cs">
+      <DependentUpon>stock_model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="retrieve_form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="retrieve_form.Designer.cs">
+      <DependentUpon>retrieve_form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="retrieve_report_form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="retrieve_report_form.Designer.cs">
+      <DependentUpon>retrieve_report_form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="stock_model.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>stock_model.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="stock_model.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>stock_model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="stock_model.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>stock_model.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="stores_form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="stores_form.Designer.cs">
+      <DependentUpon>stores_form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="stores_table.cs">
+      <DependentUpon>stock_model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="suppliers_form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="suppliers_form.Designer.cs">
+      <DependentUpon>suppliers_form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="suppliers_table.cs">
+      <DependentUpon>stock_model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>stock_model.tt</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="addBrand_form.resx">
+      <DependentUpon>addBrand_form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="addcatigory_form.resx">
+      <DependentUpon>addcatigory_form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="addModel_form.resx">
+      <DependentUpon>addModel_form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="employee_form.resx">
+      <DependentUpon>employee_form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="home_form.resx">
+      <DependentUpon>home_form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="login_form.resx">
+      <DependentUpon>login_form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="logToemp.resx">
+      <DependentUpon>logToemp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="logTostore.resx">
+      <DependentUpon>logTostore.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="logTosup.resx">
+      <DependentUpon>logTosup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="nav_form.resx">
+      <DependentUpon>nav_form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="notification_form.resx">
+      <DependentUpon>notification_form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="order_form.resx">
+      <DependentUpon>order_form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="order_report_form.resx">
+      <DependentUpon>order_report_form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="products_form.resx">
+      <DependentUpon>products_form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="product_report_form.resx">
+      <DependentUpon>product_report_form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="report_form.resx">
+      <DependentUpon>report_form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="retrieve_form.resx">
+      <DependentUpon>retrieve_form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="retrieve_report_form.resx">
+      <DependentUpon>retrieve_report_form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="stores_form.resx">
+      <DependentUpon>stores_form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="suppliers_form.resx">
+      <DependentUpon>suppliers_form.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EntityDeploy Include="stock_model.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>stock_model.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="stock_model.edmx.diagram">
+      <DependentUpon>stock_model.edmx</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="stock_model.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>stock_model.edmx</DependentUpon>
+      <LastGenOutput>stock_model.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="stock_model.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>stock_model.edmx</DependentUpon>
+      <LastGenOutput>stock_model.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.5.1\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.5.1\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.5.1\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.targets')" />
+</Project>

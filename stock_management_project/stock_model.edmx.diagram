@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="983be7d611624d29907f231a3890afe6" Name="Diagram1">
+        <EntityTypeShape EntityType="stock_managementModel.brands_table" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="stock_managementModel.categories_table" Width="1.5" PointX="3" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="stock_managementModel.employees_table" Width="1.5" PointX="6" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="stock_managementModel.enter_opreation_table" Width="1.5" PointX="7.5" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="stock_managementModel.models_table" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="stock_managementModel.order_details_table" Width="1.5" PointX="10.5" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="stock_managementModel.orders_table" Width="1.5" PointX="8.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="stock_managementModel.products_table" Width="1.5" PointX="5.25" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="stock_managementModel.retrieval_details_table" Width="1.5" PointX="10.5" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="stock_managementModel.retrievals_table" Width="1.5" PointX="8.25" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="stock_managementModel.stores_table" Width="1.5" PointX="6" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="stock_managementModel.suppliers_table" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="stock_managementModel.sysdiagram" Width="1.5" PointX="0.75" PointY="8.125" IsExpanded="true" />
+        <AssociationConnector Association="stock_managementModel.FK_models_brands" ManuallyRouted="false" />
+        <AssociationConnector Association="stock_managementModel.FK_products_categories" ManuallyRouted="false" />
+        <AssociationConnector Association="stock_managementModel.FK_enter_opreation_employees" ManuallyRouted="false" />
+        <AssociationConnector Association="stock_managementModel.FK_orders_employees" ManuallyRouted="false" />
+        <AssociationConnector Association="stock_managementModel.FK_retrievals_employees" ManuallyRouted="false" />
+        <AssociationConnector Association="stock_managementModel.FK_enter_opreation_products" ManuallyRouted="false" />
+        <AssociationConnector Association="stock_managementModel.FK_enter_opreation_suppliers" ManuallyRouted="false" />
+        <AssociationConnector Association="stock_managementModel.FK_products_models" ManuallyRouted="false" />
+        <AssociationConnector Association="stock_managementModel.FK_order_details_orders" ManuallyRouted="false" />
+        <AssociationConnector Association="stock_managementModel.FK_order_details_products" ManuallyRouted="false" />
+        <AssociationConnector Association="stock_managementModel.FK_orders_stores" ManuallyRouted="false" />
+        <AssociationConnector Association="stock_managementModel.FK_retrieval_details_products" ManuallyRouted="false" />
+        <AssociationConnector Association="stock_managementModel.FK_retrieval_details_retrievals" ManuallyRouted="false" />
+        <AssociationConnector Association="stock_managementModel.FK_retrievals_stores" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="stock_managementModelStoreContainer" CdmEntityContainer="stock_managementEntities">
+    <EntitySetMapping Name="brands_table">
+      <EntityTypeMapping TypeName="stock_managementModel.brands_table">
+        <MappingFragment StoreEntitySet="brands_table">
+          <ScalarProperty Name="brand_id" ColumnName="brand_id" />
+          <ScalarProperty Name="brand_name" ColumnName="brand_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="categories_table">
+      <EntityTypeMapping TypeName="stock_managementModel.categories_table">
+        <MappingFragment StoreEntitySet="categories_table">
+          <ScalarProperty Name="cat_id" ColumnName="cat_id" />
+          <ScalarProperty Name="cat_name" ColumnName="cat_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="employees_table">
+      <EntityTypeMapping TypeName="stock_managementModel.employees_table">
+        <MappingFragment StoreEntitySet="employees_table">
+          <ScalarProperty Name="emp_id" ColumnName="emp_id" />
+          <ScalarProperty Name="emp_name" ColumnName="emp_name" />
+          <ScalarProperty Name="emp_email" ColumnName="emp_email" />
+          <ScalarProperty Name="emp_phone" ColumnName="emp_phone" />
+          <ScalarProperty Name="emp_pass" ColumnName="emp_pass" />
+          <ScalarProperty Name="admin_id" ColumnName="admin_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="enter_opreation_table">
+      <EntityTypeMapping TypeName="stock_managementModel.enter_opreation_table">
+        <MappingFragment StoreEntitySet="enter_opreation_table">
+          <ScalarProperty Name="op_id" ColumnName="op_id" />
+          <ScalarProperty Name="ent_quantity" ColumnName="ent_quantity" />
+          <ScalarProperty Name="pro_id" ColumnName="pro_id" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="ent_date" ColumnName="ent_date" />
+          <ScalarProperty Name="sup_id" ColumnName="sup_id" />
+          <ScalarProperty Name="emp_id" ColumnName="emp_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="models_table">
+      <EntityTypeMapping TypeName="stock_managementModel.models_table">
+        <MappingFragment StoreEntitySet="models_table">
+          <ScalarProperty Name="mod_id" ColumnName="mod_id" />
+          <ScalarProperty Name="mod_name" ColumnName="mod_name" />
+          <ScalarProperty Name="brand_id" ColumnName="brand_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="order_details_table">
+      <EntityTypeMapping TypeName="stock_managementModel.order_details_table">
+        <MappingFragment StoreEntitySet="order_details_table">
+          <ScalarProperty Name="ord_detail_id" ColumnName="ord_detail_id" />
+          <ScalarProperty Name="ord_price" ColumnName="ord_price" />
+          <ScalarProperty Name="ord_detail_quantity" ColumnName="ord_detail_quantity" />
+          <ScalarProperty Name="ord_id" ColumnName="ord_id" />
+          <ScalarProperty Name="pro_id" ColumnName="pro_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="orders_table">
+      <EntityTypeMapping TypeName="stock_managementModel.orders_table">
+        <MappingFragment StoreEntitySet="orders_table">
+          <ScalarProperty Name="ord_id" ColumnName="ord_id" />
+          <ScalarProperty Name="ord_date" ColumnName="ord_date" />
+          <ScalarProperty Name="ord_state" ColumnName="ord_state" />
+          <ScalarProperty Name="store_id" ColumnName="store_id" />
+          <ScalarProperty Name="total_price" ColumnName="total_price" />
+          <ScalarProperty Name="emp_id" ColumnName="emp_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="products_table">
+      <EntityTypeMapping TypeName="stock_managementModel.products_table">
+        <MappingFragment StoreEntitySet="products_table">
+          <ScalarProperty Name="pro_id" ColumnName="pro_id" />
+          <ScalarProperty Name="pro_name" ColumnName="pro_name" />
+          <ScalarProperty Name="pro_quantity" ColumnName="pro_quantity" />
+          <ScalarProperty Name="pro_description" ColumnName="pro_description" />
+          <ScalarProperty Name="id_model" ColumnName="id_model" />
+          <ScalarProperty Name="id_category" ColumnName="id_category" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="retrieval_details_table">
+      <EntityTypeMapping TypeName="stock_managementModel.retrieval_details_table">
+        <MappingFragment StoreEntitySet="retrieval_details_table">
+          <ScalarProperty Name="re_detail_id" ColumnName="re_detail_id" />
+          <ScalarProperty Name="pro_id" ColumnName="pro_id" />
+          <ScalarProperty Name="re_quantity" ColumnName="re_quantity" />
+          <ScalarProperty Name="re_id" ColumnName="re_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="retrievals_table">
+      <EntityTypeMapping TypeName="stock_managementModel.retrievals_table">
+        <MappingFragment StoreEntitySet="retrievals_table">
+          <ScalarProperty Name="re_id" ColumnName="re_id" />
+          <ScalarProperty Name="re_date" ColumnName="re_date" />
+          <ScalarProperty Name="store_id" ColumnName="store_id" />
+          <ScalarProperty Name="emp_id" ColumnName="emp_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="stores_table">
+      <EntityTypeMapping TypeName="stock_managementModel.stores_table">
+        <MappingFragment StoreEntitySet="stores_table">
+          <ScalarProperty Name="store_id" ColumnName="store_id" />
+          <ScalarProperty Name="store_name" ColumnName="store_name" />
+          <ScalarProperty Name="store_phone" ColumnName="store_phone" />
+          <ScalarProperty Name="store_address" ColumnName="store_address" />
+          <ScalarProperty Name="store_email" ColumnName="store_email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="suppliers_table">
+      <EntityTypeMapping TypeName="stock_managementModel.suppliers_table">
+        <MappingFragment StoreEntitySet="suppliers_table">
+          <ScalarProperty Name="sup_id" ColumnName="sup_id" />
+          <ScalarProperty Name="sup_name" ColumnName="sup_name" />
+          <ScalarProperty Name="sup_email" ColumnName="sup_email" />
+          <ScalarProperty Name="sup_phone" ColumnName="sup_phone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="stock_managementModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
